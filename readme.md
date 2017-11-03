@@ -4,21 +4,20 @@
 
 This short introduction will hopefully serve as a useful document in the planning of data visualisation projects
 
-## Modern Web Development (2017)
+## Web Development (2017)
 
 * Modern web development now has some really smart ways of deploying apps
 * In the past there was a somewhat arduous process of module loading and runtime load dependencies. If there was a failure the webpage might behave unexpectedly
 * Thankfully, there are now package managers which **bundle** all project code plus dependencies into a single file that can just be copied to the webserver
 * These package managers allow you to maintain a well organised code, testing functionality, style management and linting
-* Webpack.js is a common one and has been used here to manage this project
-* Rollup.js is another popular manager
+* Webpack.js is probably the most common, however Rollup.js is gaining popularity
 
 ### Web Coding Standards
 
 * Browsers (chrome, mozilla, etc) use javascript to execute code from the webpage
-* However, not all browsers support the latest javascript standards (es2017) so newer functionality and methods take a while to filter into normal practice because of browser compatibility issues
+* However, not all browsers support the latest javascript standards (es2017) so newer functionality and methods takes time to filter into normal practice because of browser compatibility issues
 * Thankfully, javascript developers have created libraries that can transpile code based on the latest standards and understood by browsers
-* This process occurs behind the scenes during bundling stage so you don't really need to spend too much time worring about this (unless something goes wrong)
+* This process occurs behind the scenes during the bundling stage so you don't really need to spend too much time worrying about this (unless something goes wrong)
 * Babel.js is a common transpiling library
 * Understanding this concept is important because over the last few years javascript syntax has changed significantly and a **major** update occured in es2017 where variable scope and declaration were significantly altered
 * Developing code on older conventions probably is okay for typical sites, but for data visualisation a lot of benefit comes using the latest conventions
