@@ -6,6 +6,7 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   filename: 'index.html',
   inject: 'body',
 });
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: './lib/main.js',
@@ -73,6 +74,9 @@ module.exports = {
 },
   plugins: [
     new CleanWebpackPlugin(['docs']),
+    new CopyWebpackPlugin([
+      {from: 'data/output/', to:'data'}
+    ]),
     HtmlWebpackPluginConfig,
   ],
 };
