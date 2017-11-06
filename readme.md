@@ -1,16 +1,19 @@
-# Data Visualisation Deployment Overview
+# Front-end Web Development Overview
 
 ## Summary
 
-This short introduction will hopefully serve as a useful document in the planning of data visualisation projects
+This short introduction will hopefully serve as a useful document when discussing technical aspects of visualisation web development.
 
 ## Web Development (2017)
 
 * Modern web development now has some really smart ways of deploying apps
-* In the past there was a somewhat arduous process of module loading and runtime load dependencies. If there was a failure the webpage might behave unexpectedly
+* In the past there was a somewhat arduous process of javascript module at runtime. If there was a failure the webpage might behave unexpectedly
 * Thankfully, there are now package managers which **bundle** all project code plus dependencies into a single file that can just be copied to the webserver
 * These package managers allow you to maintain a well organised code, testing functionality, style management and linting
 * Webpack.js is probably the most common, however Rollup.js is gaining popularity
+
+
+
 
 ### Web Coding Standards
 
@@ -37,9 +40,40 @@ This short introduction will hopefully serve as a useful document in the plannin
 * Although D3 provides a lot of functionality a lot still needs to be coded and it is a difficult library to become familiar with
 * Major upgrades occured between v3 and v4 which means that many tutorials, examples and learning resources are now obsolete
 * Most examples on the web are pretty basic and don't really help developing a visual in a wider website
-* The best resource currently found that covers the latest es2017 standards is the book **D3.js 4.x Data Visualisation** which covers most of the concepts dicussed in this short overview
+* The best resource currently found that covers the latest es2017 standards is the book **D3.js 4.x Data Visualisation** which covers most of the concepts discussed in this short overview
 
+#### D3 Working Example
 
-#### Flourish
+A working example has been provided to demonstrate how a project could be managed and the built files are being deployed here; https://seasick-pete.github.io/emissions/
 
+Its a very basic example but hopefully demonstrates how the basic mechanisms of d3 work and how these can be expanded to include more sophisticated visuals as time goes by. The proposed directory structure is only for reference to demonstrate how the example has been put together.
 
+If this method is considered to be a good approach to take, then this structure can act as the base foundation of any development.
+
+```shell
+├── data
+│   ├── input        - any aggregated datasets (csv, tsv, json)
+│   ├── output       - fully prepared data for use in visuals  (csv, tsv, json)
+│   └── process      - data processing scripts if necessary
+├── docs             - transpiled deployment files with data dependencies
+│   ├── bundle.js
+│   ├── data
+│   │   └── output_csv_route_specific_dummy.csv
+│   └── index.html
+├── lib               - javascript development files 
+│   ├── common        - common functions can reside here
+│   │   └── index.js
+│   ├── index.ejs     - a very basic index.html page template
+│   ├── main.js       - the entry script for the web site code
+│   └── pisces        - the project specific code goes here
+│       ├── bubbleChart.js   - separated visualisation objects
+│       └── index.js
+├── node_modules       - dependency files used during development and build process
+├── package.json       - npm project package config file
+├── readme.md
+├── styles             - any scss/css styling files if used
+│   └── index.css
+├── webpack.common.js  - webpack config files
+├── webpack.dev.js
+└── webpack.prod.js
+```
